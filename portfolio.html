@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Tajpara - Cybersecurity & QA Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Background Elements */
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+            background-size: 800px 800px, 600px 600px, 1000px 1000px;
+            background-position: 0% 0%, 100% 100%, 50% 50%;
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+
+            0%,
+            100% {
+                background-position: 0% 0%, 100% 100%, 50% 50%;
+            }
+
+            50% {
+                background-position: 100% 100%, 0% 0%, 25% 75%;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+            animation-duration: 25s;
+        }
+
+        .shape:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 10s;
+            animation-duration: 18s;
+        }
+
+        .shape:nth-child(4) {
+            top: 30%;
+            left: 70%;
+            animation-delay: 15s;
+            animation-duration: 22s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.1;
+            }
+
+            90% {
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            53%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40%,
+            43% {
+                transform: translateY(-15px);
+            }
+
+            70% {
+                transform: translateY(-7px);
+            }
+
+            90% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .typing-animation {
+            border-right: 2px solid #06b6d4;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                border-color: #06b6d4;
+            }
+
+            51%,
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        /* Programming Language Icons */
+        .lang-icon {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .lang-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 20px currentColor);
+        }
+
+        .java-icon {
+            color: #f89820;
+        }
+
+        .java-icon:hover {
+            color: #ff6b35;
+            animation: bounce 0.6s;
+        }
+
+        .python-icon {
+            color: #3776ab;
+        }
+
+        .python-icon:hover {
+            color: #ffd43b;
+            animation: bounce 0.6s;
+        }
+
+        .csharp-icon {
+            color: #239120;
+        }
+
+        .csharp-icon:hover {
+            color: #68217a;
+            animation: bounce 0.6s;
+        }
+
+        .cpp-icon {
+            color: #00599c;
+        }
+
+        .cpp-icon:hover {
+            color: #f34b7d;
+            animation: bounce 0.6s;
+        }
+
+        .bash-icon {
+            color: #4eaa25;
+        }
+
+        .bash-icon:hover {
+            color: #89e051;
+            animation: bounce 0.6s;
+        }
+
+        .thm-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .thm-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 160px;
+            bottom: 30px;
+            background: linear-gradient(45deg, #06b6d4, #0891b2, #06b6d4);
+            border-radius: 15px;
+            z-index: -1;
+            animation: glow 2s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .thm-iframe {
+            border-radius: 10px;
+            overflow: hidden;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Content positioning */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Subtle section backgrounds */
+        .section-bg {
+            background: rgba(17, 24, 39, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1RFNL6FXL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-B1RFNL6FXL');
+    </script>
+</head>
+
+<body class="bg-black text-white min-h-screen scroll-smooth bg-pattern grid-pattern">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape w-20 h-20 border border-cyan-500 rounded-full"></div>
+        <div class="shape w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg transform rotate-45"></div>
+        <div class="shape w-12 h-12 border-2 border-cyan-400 transform rotate-45"></div>
+        <div class="shape w-24 h-24 border border-blue-400 rounded-full"></div>
+        <div class="shape w-8 h-8 bg-cyan-400 rounded-full"></div>
+        <div class="shape w-14 h-14 border border-cyan-300 transform rotate-45"></div>
+    </div>
+
+    <div class="content-layer">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-sm z-50 border-b border-gray-800">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="text-xl font-bold gradient-text">Hit Tajpara</div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#home" class="hover:text-cyan-400 transition">Home</a>
+                        <a href="#about" class="hover:text-cyan-400 transition">About</a>
+                        <a href="#experience" class="hover:text-cyan-400 transition">Experience</a>
+                        <a href="#projects" class="hover:text-cyan-400 transition">Projects</a>
+                        <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+                    </div>
+                    <button id="mobile-menu-btn" class="md:hidden">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="#home" class="block hover:text-cyan-400 transition">Home</a>
+                    <a href="#about" class="block hover:text-cyan-400 transition">About</a>
+                    <a href="#experience" class="block hover:text-cyan-400 transition">Experience</a>
+                    <a href="#projects" class="block hover:text-cyan-400 transition">Projects</a>
+                    <a href="#contact" class="block hover:text-cyan-400 transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center justify-between">
+                    <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 animate-slide-left">
+                        <h1 class="text-4xl lg:text-6xl font-bold mb-4">
+                            Hi, I'm <span class="gradient-text">Hit Tajpara</span>
+                        </h1>
+                        <div class="text-xl lg:text-2xl text-gray-400 mb-6">
+                            <span id="typing-text" class="typing-animation"></span>
+                        </div>
+                        <p class="text-lg text-gray-300 mb-8 max-w-2xl">
+                            Cybersecurity Learner | Building Skills in Ethical Hacking & Digital Defence | On a Mission
+                            to Make the Internet a Safer Place.
+                            Currently pursuing B.Tech in Computer Engineering at Swarrnim Startup & Innovation
+                            University
+                            .
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#contact"
+                                class="bg-cyan-500 hover:bg-cyan-600 text-black px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105">
+                                Get In Touch
+                            </a>
+                            <a href="#projects"
+                                class="border border-cyan-500 hover:bg-cyan-500 hover:text-black px-8 py-3 rounded-lg font-semibold transition">
+                                View Projects
+                            </a>
+                        </div>
+                        <div class="flex justify-center lg:justify-start space-x-6 mt-8">
+                            <a href="https://github.com/Hit2405" target="_blank"
+                                class="text-2xl hover:text-cyan-400 transition transform hover:scale-110">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/hit-tajpara-089ba5286/" target="_blank"
+                                class="text-2xl hover:text-cyan-400 transition transform hover:scale-110">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://aurojitdas.com" target="_blank"
+                                class="text-2xl hover:text-cyan-400 transition transform hover:scale-110">
+                                <i class="fas fa-globe"></i>
+                            </a>
+                            <a href="mailto:hit2452007@gmail.com"
+                                class="text-2xl hover:text-cyan-400 transition transform hover:scale-110">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 flex justify-center animate-slide-right">
+                        <div class="thm-container">
+                            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=6079847"
+                                style="border:none; width:500px; height:120px;" class="thm-iframe">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 section-bg">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 gradient-text animate-fade-up">About Me</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="animate-slide-left">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Professional Summary</h3>
+                        <div class="space-y-6">
+                            <div class="card-hover p-6 rounded-lg backdrop-blur-sm border border-cyan-500/10">
+                                <p class="text-gray-300 leading-relaxed">
+                                    Motivated and detail-oriented IT enthusiast with a Diploma in Computer Engineering,
+                                    specializing in Cybersecurity. Passionate about building a strong foundation in network
+                                    security, ethical practices, and system administration. Dedicated to continuous learning and
+                                    pursuing a career that combines technical expertise with innovation in digital defense.
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="card-hover p-6 rounded-lg backdrop-blur-sm border border-cyan-500/10">
+                                    <h4 class="text-lg font-semibold text-cyan-400 mb-3">Areas of Interest</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-shield-alt text-cyan-400 mr-2"></i>
+                                            Network Security
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-bug text-cyan-400 mr-2"></i>
+                                            Penetration Testing
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-lock text-cyan-400 mr-2"></i>
+                                            System Security
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="card-hover p-6 rounded-lg backdrop-blur-sm border border-cyan-500/10">
+                                    <h4 class="text-lg font-semibold text-cyan-400 mb-3">Current Focus</h4>
+                                    <ul class="space-y-2 text-gray-300">
+                                        <li class="flex items-center">
+                                            <i class="fas fa-graduation-cap text-cyan-400 mr-2"></i>
+                                            Pursuing B.Tech
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-certificate text-cyan-400 mr-2"></i>
+                                            Security Certifications
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i class="fas fa-laptop-code text-cyan-400 mr-2"></i>
+                                            Hands-on Projects
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stats Section (Commented Out)
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="text-center p-4 card-hover rounded-lg">
+                                <div class="text-2xl font-bold text-cyan-400">fresher</div>
+                                <div class="text-sm text-gray-400"></div>
+                            </div>
+                            <div class="text-center p-4 card-hover rounded-lg">
+                                <div class="text-2xl font-bold text-cyan-400">250+</div>
+                                <div class="text-sm text-gray-400">Test Cases Created</div>
+                            </div>
+                            <div class="text-center p-4 card-hover rounded-lg">
+                                <div class="text-2xl font-bold text-cyan-400">30%</div>
+                                <div class="text-sm text-gray-400">Vulnerability Reduction</div>
+                            </div>
+                            <div class="text-center p-4 card-hover rounded-lg">
+                                <div class="text-2xl font-bold text-cyan-400">40%</div>
+                                <div class="text-sm text-gray-400">Testing Efficiency</div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                    <div class="animate-slide-right">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Education & Certifications</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 card-hover rounded-lg">
+                                <h4 class="font-semibold text-cyan-300">Diploma - Computer Engineering</h4>
+                                <p class="text-gray-400">Prime College Of Diploma | Jun 2025 | Navsari</p>
+                            </div>
+                            <div class="p-4 card-hover rounded-lg">
+                                <h4 class="font-semibold text-cyan-300">Bachelor of Technology - Computer Engineering
+                                </h4>
+                                <p class="text-gray-400">Swarrnim Startup & Innovation University
+                                    | Jun 2028 | Gandhinagar, India</p>
+                            </div>
+                            <!-- <div class="p-4 card-hover rounded-lg">
+                                <h4 class="font-semibold text-cyan-300">CompTIA Pentest+</h4>
+                                <p class="text-gray-400">Certified Penetration Testing Professional | 2024</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="card-hover rounded-lg p-6 animate-fade-up">
+                        <h3 class="text-xl font-semibold mb-6 text-cyan-400 flex items-center">
+                            <i class="fas fa-code mr-3"></i>Programming Languages
+                        </h3>
+                        <div class="grid grid-cols-3 gap-6 justify-items-center">
+                            <div class="text-center group">
+                                <div class="lang-icon java-icon text-6xl mb-2">
+                                    <i class="fab fa-java"></i>
+                                </div>
+                                <span class="text-sm text-gray-400 group-hover:text-orange-400 transition">Java</span>
+                            </div>
+                            <div class="text-center group">
+                                <div class="lang-icon python-icon text-6xl mb-2">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <span class="text-sm text-gray-400 group-hover:text-yellow-400 transition">Python</span>
+                            </div>
+                            <div class="text-center group">
+                                <div class="lang-icon csharp-icon text-6xl mb-2">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <span
+                                    class="text-sm text-gray-400 group-hover:text-purple-400 transition">Html/Css/Js</span>
+                            </div>
+                            <div class="text-center group">
+                                <div class="lang-icon cpp-icon text-6xl mb-2">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <span class="text-sm text-gray-400 group-hover:text-blue-400 transition">C/C++</span>
+                            </div>
+                            <div class="text-center group">
+                                <div class="lang-icon bash-icon text-6xl mb-2">
+                                    <i class="fas fa-terminal"></i>
+                                </div>
+                                <span class="text-sm text-gray-400 group-hover:text-green-400 transition">Bash</span>
+                            </div>
+                            <div class="text-center group">
+                                <div class="lang-icon bash-icon text-6xl mb-2">
+                                    <i class="fab fa-windows"></i>
+                                </div>
+                                <span
+                                    class="text-sm text-gray-400 group-hover:text-blue-400 transition">PowerShell</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Tools -->
+                    <div class="card-hover rounded-lg p-6 animate-fade-up" style="animation-delay: 0.2s">
+                        <h3 class="text-xl font-semibold mb-6 text-cyan-400 flex items-center">
+                            <i class="fas fa-shield-alt mr-3"></i>Security Tools
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Metasploit</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Burp Suite</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Nmap</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Tshark</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Sqlmap</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Hydra</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Cryptography</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Gobuster</div>
+                        </div>
+                    </div>
+
+                    <!-- Development Tools -->
+                    <div class="card-hover rounded-lg p-6 animate-fade-up" style="animation-delay: 0.4s">
+                        <h3 class="text-xl font-semibold mb-6 text-cyan-400 flex items-center">
+                            <i class="fas fa-tools mr-3"></i>Development & QA Tools
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Packet tracer</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Wireshark</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Git/Github</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                VS code</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                PyCharm</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Docker</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                Azure</div>
+                            <div
+                                class="bg-gray-800/50 p-3 rounded text-center hover:bg-cyan-900/50 transition transform hover:scale-105 border border-gray-700/50">
+                                AWS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 section-bg">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 gradient-text">Professional Experience</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Timeline line -->
+                        <div class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-0.5 h-full bg-cyan-500">
+                        </div>
+
+                        <!-- Experience Items -->
+                        <div class="space-y-12">
+                            <!-- Accenture Senior Analyst -->
+                            <div class="relative flex items-center">
+                                <div
+                                    class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-4 h-4 bg-cyan-500 rounded-full border-4 border-black">
+                                </div>
+                                <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pr-8 animate-slide-left">
+                                    <div class="card-hover p-6 rounded-lg">
+                                        <div class="flex justify-between items-start mb-4">
+                                            <div>
+                                                <h3 class="text-xl font-semibold text-cyan-400">Machine Learning</h3>
+                                                <p class="text-gray-400">Internship</p>
+                                            </div>
+                                            <span class="text-sm text-gray-500">Jun 2024 – Aug 2024</span>
+                                        </div>
+                                        <ul class="text-gray-300 space-y-2 text-sm">
+                                            <p>Completed a 45-day internship focused on core Machine Learning algorithms
+                                                and concepts. Worked on real-world datasets for model training, testing,
+                                                and evaluation. Gained hands-on experience using Python for ML tasks
+                                                such as data preprocessing and building predictive models. Collaborated
+                                                remotely with a team on minor project tasks and reporting.</p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LTI Quality Engineer -->
+                            <div class="relative flex items-center lg:justify-end">
+                                <div
+                                    class="absolute left-4 lg:left-1/2 transform lg:-translate-x-1/2 w-4 h-4 bg-cyan-500 rounded-full border-4 border-black">
+                                </div>
+                                <div class="ml-12 lg:ml-0 lg:w-1/2 lg:pl-8 animate-slide-right">
+                                    <div class="card-hover p-6 rounded-lg">
+                                        <div class="flex justify-between items-start mb-4">
+                                            <div>
+                                                <h3 class="text-xl font-semibold text-cyan-400">Coming Soon</h3>
+                                                <p class="text-gray-400"></p>
+                                            </div>
+                                            <span class="text-sm text-gray-500"></span>
+                                        </div>
+                                        <ul class="text-gray-300 space-y-2 text-sm">
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- PDF Assistant Chatbot -->
+                    <div class="card-hover rounded-lg overflow-hidden animate-fade-up">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-robot text-2xl text-cyan-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">PDF Assistant Chatbot</h3>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                AI-powered PDF chat application using Streamlit and Groq API. Features user authentication,
+                                PDF processing, and intelligent document interaction using LLaMA 3.1 model.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Python</span>
+                                <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Streamlit</span>
+                                <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Groq API</span>
+                                <span class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">LangChain</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024</span>
+                                <div class="flex space-x-3">
+                                    <i class="fas fa-file-pdf text-cyan-400"></i>
+                                    <i class="fas fa-brain text-cyan-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CryptoMessenger -->
+                    <div class="card-hover rounded-lg overflow-hidden animate-fade-up" style="animation-delay: 0.2s">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-lock text-2xl text-cyan-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Coming soon</h3>
+                            </div>
+                            <!-- <p class="text-gray-400 mb-4">
+                                Secure messaging application using .NET 8.0 and WPF with ECDH key exchange and
+                                AES-256 encryption for end-to-end encrypted communication.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">.NET
+                                    8.0</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">WPF</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">AES-256</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024</span>
+                                <i class="fas fa-comments text-cyan-400"></i>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="card-hover rounded-lg overflow-hidden animate-fade-up" style="animation-delay: 0.2s">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-lock text-2xl text-cyan-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Coming soon</h3>
+                            </div>
+                            <!-- <p class="text-gray-400 mb-4">
+                                Secure messaging application using .NET 8.0 and WPF with ECDH key exchange and
+                                AES-256 encryption for end-to-end encrypted communication.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">.NET
+                                    8.0</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">WPF</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">AES-256</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024</span>
+                                <i class="fas fa-comments text-cyan-400"></i>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Hack Track Blog -->
+                    <!-- <div class="card-hover rounded-lg overflow-hidden animate-fade-up" style="animation-delay: 0.4s">
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-blog text-2xl text-cyan-400 mr-3"></i>
+                                <h3 class="text-xl font-semibold">Hack Track Blog</h3>
+                            </div>
+                            <p class="text-gray-400 mb-4">
+                                Personal cybersecurity blog educating beginners in penetration testing with
+                                step-by-step guides, tool analyses, and practical writeups.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Penetration
+                                    Testing</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Education</span>
+                                <span
+                                    class="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-sm border border-cyan-700/50">Community</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024</span>
+                                <i class="fas fa-graduation-cap text-cyan-400"></i>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 section-bg">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div class="animate-slide-left">
+                            <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Let's Connect</h3>
+                            <p class="text-gray-300 mb-8">
+                                I'm currently pursuing my B.Tech in Computer Engineering and actively seeking opportunities
+                                in cybersecurity Internship. Let's discuss how I can contribute to your team.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-cyan-400 mr-4 w-6"></i>
+                                    <a href="mailto:hit2452007@gmail.com" class="hover:text-cyan-400 transition">
+                                        hit2452007@gmail.com
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-cyan-400 mr-4 w-6"></i>
+                                    <a href="tel:+917863836634" class="hover:text-cyan-400 transition">
+                                        +91 7863836634
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-cyan-400 mr-4 w-6"></i>
+                                    <span>Gujarat, India</span>
+                                </div>
+                                <!-- <div class="flex items-center">
+                                    <i class="fas fa-globe text-cyan-400 mr-4 w-6"></i>
+                                    <a href="https://aurojitdas.com" target="_blank"
+                                        class="hover:text-cyan-400 transition">
+                                        aurojitdas.com
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="animate-slide-right">
+                            <form class="space-y-6" id="contact-form" action="https://formspree.io/f/xwpwwwyl" method="POST">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:border-cyan-500 focus:outline-none transition backdrop-blur-sm">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:border-cyan-500 focus:outline-none transition backdrop-blur-sm">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5" required
+                                        class="w-full px-4 py-3 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:border-cyan-500 focus:outline-none transition backdrop-blur-sm"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-cyan-500 hover:bg-cyan-600 text-black px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 border-t border-gray-800/50">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 mb-4 md:mb-0">
+                        © 2025 Hit Tajpara. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="https://github.com/Hit2405" target="_blank"
+                            class="text-gray-400 hover:text-cyan-400 transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hit-tajpara-089ba5286/" target="_blank"
+                            class="text-gray-400 hover:text-cyan-400 transition">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <!-- <a href="https://aurojitdas.com" target="_blank"
+                            class="text-gray-400 hover:text-cyan-400 transition">
+                            <i class="fas fa-globe text-xl"></i>
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top"
+            class="fixed bottom-8 right-8 bg-cyan-500 hover:bg-cyan-600 text-black p-3 rounded-full shadow-lg transition transform hover:scale-110 opacity-0 invisible z-50">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Custom Popup -->
+        <div id="custom-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm"></div>
+            <div class="relative bg-black/90 p-8 rounded-sm shadow-[0_0_20px_rgba(6,182,212,0.3)] border border-cyan-500/30 transform transition-all duration-300 scale-95 opacity-0 max-w-md w-full mx-4 overflow-hidden">
+                <div class="text-center relative">
+                    <!-- Glitch Effect Overlay -->
+                    <div class="absolute inset-0 glitch-overlay"></div>
+                    
+                    <!-- Scanner Line Effect -->
+                    <div class="absolute left-0 w-full h-px bg-cyan-400/50 scanner-line"></div>
+
+                    <div class="mb-4 text-cyan-400 relative">
+                        <i class="fas fa-terminal text-4xl"></i>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 relative terminal-text">
+                        <h3 class="text-xl font-mono mb-2 text-cyan-400 typewriter" id="popup-title">> TRANSMISSION_RECEIVED</h3>
+                        <p class="text-cyan-300/80 font-mono" id="popup-message">> MESSAGE_STATUS: DELIVERED</p>
+                        <p class="text-cyan-300/60 font-mono text-sm">> ENCRYPTED_CHANNEL: SECURE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes glitch {
+                0% {
+                    transform: translate(0);
+                }
+                20% {
+                    transform: translate(-2px, 2px);
+                }
+                40% {
+                    transform: translate(-2px, -2px);
+                }
+                60% {
+                    transform: translate(2px, 2px);
+                }
+                80% {
+                    transform: translate(2px, -2px);
+                }
+                100% {
+                    transform: translate(0);
+                }
+            }
+
+            @keyframes scan {
+                0% {
+                    top: 0;
+                }
+                100% {
+                    top: 100%;
+                }
+            }
+
+            .glitch-overlay {
+                background: linear-gradient(45deg, rgba(6, 182, 212, 0.1), transparent);
+                mix-blend-mode: overlay;
+                animation: glitch 0.3s infinite;
+            }
+
+            .scanner-line {
+                animation: scan 3s linear infinite;
+            }
+
+            .terminal-text {
+                text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+            }
+
+            @keyframes typewriter {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            .typewriter {
+                overflow: hidden;
+                white-space: nowrap;
+                border-right: 2px solid rgba(6, 182, 212, 0.5);
+                animation: typewriter 1s steps(40) forwards,
+                         blink 1s infinite;
+            }
+        </style>
+    </div>
+
+    <script>
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            'Cybersecurity Learner',
+            'Ethical Hacking',
+            'Network Engineer',
+            'System Administrator'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Custom popup functions
+        function showPopup(title, message, isError = false) {
+            const popup = document.getElementById('custom-popup');
+            const popupContent = popup.querySelector('.relative');
+            const popupTitle = document.getElementById('popup-title');
+            const popupMessage = document.getElementById('popup-message');
+            
+            if (isError) {
+                popupTitle.textContent = '> ERROR_DETECTED';
+                popupMessage.textContent = '> MESSAGE_STATUS: FAILED';
+                popupTitle.classList.add('text-red-400');
+                popupContent.classList.add('border-red-500/30');
+                popup.querySelector('.fas').classList.add('fa-exclamation-triangle');
+            } else {
+                popupTitle.textContent = '> TRANSMISSION_RECEIVED';
+                popupMessage.textContent = '> MESSAGE_STATUS: DELIVERED';
+                popupTitle.classList.remove('text-red-400');
+                popupContent.classList.remove('border-red-500/30');
+                popup.querySelector('.fas').classList.add('fa-terminal');
+            }
+            
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popupContent.classList.remove('scale-95', 'opacity-0');
+                popupContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+
+            // Automatically close popup after 5 seconds
+            setTimeout(() => {
+                closePopup();
+            }, 5000);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('custom-popup');
+            const popupContent = popup.querySelector('.relative');
+            
+            popupContent.classList.remove('scale-100', 'opacity-100');
+            popupContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 300);
+        }
+
+        // Contact form with Formspree AJAX submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    showPopup('Thank You!', 'Thank you for your message! I will get back to you soon.');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Error sending message');
+                }
+            })
+            .catch(error => {
+                showPopup('Error', 'Oops! There was a problem sending your message. Please try again later.', true);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Initialize typing animation
+        typeWriter();
+    </script>
+</body>
+
+</html>
